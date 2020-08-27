@@ -1,0 +1,58 @@
+<form ngForm
+      (ngSubmit)="onSubmit(f)"
+      #f="ngForm">
+    <div class="form-group">
+        <label for="blog_title">New
+            Blog_Title</label>
+        <input [ngModel]="todo?.blog_title"
+               minlength="3"
+               name="blog_title"
+               required
+               type="text"
+               class="form-control"
+               id="blog_title"
+               #blog_title="ngModel"
+               placeholder="Enter blog_title">
+        <small class="form-text text-muted"
+               *ngIf="!blog_title.valid && blog_title.touched">
+            Enter Valid Blog_Title
+        </small>
+        </div>
+        <div class="form-group">
+            <label for="description">New
+                Description</label>
+            <input [ngModel]="todo?.description"
+                   minlength="3"
+                   name="description"
+                   required
+                   type="text"
+                   class="form-control"
+                   id="description"
+                   #description="ngModel"
+                   placeholder="Enter description">
+            <small class="form-text text-muted"
+                   *ngIf="!description.valid && description.touched">
+                Enter Valid Description
+            </small>
+            </div>
+            <div class="form-group">
+                <label for="image_url">New
+                    Image_Url</label>
+                <input [ngModel]="todo?.image_url"
+                       minlength="3"
+                       name="image_url"
+                       required
+                       type="text"
+                       class="form-control"
+                       id="image_url"
+                       #image_url="ngModel"
+                       placeholder="Enter image_url">
+                <small class="form-text text-muted"
+                       *ngIf="!image_url.valid && image_url.touched">
+                    Enter Valid Image_Url
+                </small>
+                </div>
+    <hr />
+    <button type="submit"
+            class="btn btn-primary">Save</button>
+</form>

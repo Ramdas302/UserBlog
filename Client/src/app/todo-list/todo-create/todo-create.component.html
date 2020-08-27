@@ -1,0 +1,93 @@
+<div class="row">
+    <button
+        data-toggle="modal"
+        data-target="#create-modal"
+        class="btn btn-success">Create Blog</button>
+</div>
+<div id="create-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Blog</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form ngForm (ngSubmit)="onSubmit(f)" #f="ngForm">
+                    <div class="form-group">
+                        <label for="description"> Description</label>
+                        <input
+                            ngModel
+                            minlength="3"
+                            name="description"
+                            required
+                            type="text"
+                            class="form-control"
+                            id="description"
+                            #description="ngModel"
+                            placeholder="Enter Todo Description">
+                        <small
+                            class="form-text text-muted"
+                            *ngIf="!description.valid && description.touched">
+                            Enter Valid Description
+                        </small>
+                    </div>
+                    <div class="form-group">
+                        <label for="blog_title">Blog_title</label>
+                        <input
+                            ngModel
+                            minlength="3"
+                            name="blog_title"
+                            required
+                            type="text"
+                            class="form-control"
+                            id="blog_title"
+                            #blog_title="ngModel"
+                            placeholder="Enter Blog_title">
+                        <small
+                            class="form-text text-muted"
+                            *ngIf="!blog_title.valid && blog_title.touched">
+                            Enter Valid Description
+                        </small>
+                    </div>
+                
+                    <div class="form-group">
+                        <label for="image_url"> Image_Url</label>
+                        <input
+                            ngModel
+                            minlength="3"
+                            name="image_url"
+                            required
+                            type="text"
+                            class="form-control"
+                            id="image_url"
+                            #description="ngModel"
+                            placeholder="Enter Image_Url">
+                        <small
+                            class="form-text text-muted"
+                            *ngIf="!image_url.valid && image_url.touched">
+                            Enter Valid Description
+                        </small>
+                    </div>
+
+                    <div *ngIf="editingTodo" class="form-group form-check">
+                        <label for="completed">Completed</label>
+                        <input
+                            ngModel
+                            name="completed"
+                            type="checkbox"
+                            class="form-check-input"
+                            id="completed">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button
+                            [disabled]="!f.valid"
+                            type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

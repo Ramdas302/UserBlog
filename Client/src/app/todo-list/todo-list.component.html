@@ -1,0 +1,27 @@
+<app-todo-create></app-todo-create>
+<br/>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Blog_Title</th>
+            <th scope="col">Image_Url</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let todo of todos; let i = index">
+            <td class="align-middle">{{todo.description}}</td>
+            <td class="align-middle">{{todo.blog_title}}</td>
+            <td class="align-middle">{{todo.image_url}}</td>
+            <td class="align-middle">
+                <button
+                    (click)="onEdit(todo._id)"
+                    class="btn btn-warning">Edit</button>
+                <button
+                    (click)="onDelete(i)"
+                    class="btn btn-danger btn-delete">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
